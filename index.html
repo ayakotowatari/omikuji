@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/87fa672dc5.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@300;400&family=Montserrat:wght@300;400&family=Noto+Sans+JP:wght@300;400&family=Playfair+Display:ital@1&family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/irr2cdh.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Inspirational quotes</title>
+</head>
+<body>
+    <div class="start text-center">
+        <div class="start-inner">
+            <p id="app" class="start-textE">Inspirational quotes</p>
+            <p class="start-textJ">今日のことば</p> 
+            <p class="start-textM">for</p>
+
+            <p id="date"></p>
+
+            <div id="btn" class="btn-start">
+                <i class="fas fa-angle-double-right"></i>
+                <p>tap here</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-body">
+        
+        <i id="home" class="fas fa-home"></i>
+        <div class="main-inner">
+            <p id="echo-en" class="main-textE"></p>
+            <p id="echo-name" class="main-name"></p>
+            <p id="echo-jp" class="main-textT"></p>
+
+                <div id="btn-back" class="btn-back">
+                    <p class="btn-back_text">try one more</p>
+                    <i class="fas fa-angle-double-right"></i>
+                </div>
+        </div>
+    
+
+        <footer>
+            <small class="footer">&copy; ayako towatari 2020</small>
+        </footer>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+        mydate=new Date();
+        Ye=mydate.getFullYear()+".";
+        Mo=mydate.getMonth()+1+".";
+        Da=mydate.getDate();
+        $("#date").html(Ye+Mo+Da);
+        let date_style = {
+            "color":"#707070",
+            "font-size":"16px",
+            "font-family":"Playfair Display,serif",
+            "letter-spacing":"0.05em",
+            "margin-bottom":"10vh"
+        }
+        $("#date").css(date_style);
+
+        const qEn_01 = 'Hard work pays off <br> in the future, <br> laziness pays off now.';
+        const qEn_02 = 'Happiness is not a station <br> you arrive at, <br> but a manner of traveling.';
+        const qEn_03 = 'When you can’t find <br> the sunshine, <br> be the sunshine!';
+        const qEn_04 = 'The way I see it, <br> if you want the rainbow, <br> you gotta put up with <br> the rain.';
+        const qEn_05 = 'Make each day <br> your masterpiece.';
+        const qEn_06 = 'A truly happy person is <br> one who can enjoy the scenery <br> while on a detour.';
+        const qEn_07 = 'True happiness…arises, <br> in the first place, from <br> the enjoyment of one’s self.';
+        const qEn_08 = 'Focus on the journey, <br> not the destination. <br> Joy is found not in finishing <br> an activity but in doing it.';
+        const qEn_09 = 'Try to be a rainbow <br> in someone’s cloud.';
+        const qEn_10 = 'The meaning of life is <br> to give life meaning.';
+        const qAu_01 = 'anonymous';
+        const qAu_02 = 'anonymous';
+        const qAu_03 = 'anonymous';
+        const qAu_04 = 'anonymous';
+        const qAu_05 = 'john wooden';
+        const qAu_06 = 'sydney j. harris';
+        const qAu_07 = 'joseph addison';
+        const qAu_08 = 'greg anderson';
+        const qAu_09 = 'maya angelou';
+        const qAu_10 = 'ken hudgins';
+        const qJp_01 = '努力が助けるのは未来、<br> 怠惰が助けるのはいま。';
+        const qJp_02 = '幸せとは、たどりつく駅ではなく、 <br> あなたが旅をする姿勢。';
+        const qJp_03 = '太陽がみつからないなら、 <br> あなたが太陽になりなさい！';
+        const qJp_04 = '虹がほしいなら、 <br> 雨に耐えないといけない。<br> それが私の考え方。';
+        const qJp_05 = '毎日を、 <br> あなたの大作にしなさい。';
+        const qJp_06 = '本当に幸せな人間とは、<br> まわり道の風景を楽しむことができる人。';
+        const qJp_07 = '本当の幸せは、 <br> まず、自分を楽しむこと。';
+        const qJp_08 = '目的地ではなく、 <br> 旅に集中しなさい。 <br> 喜びとは、何かを終わらせることではなく、 <br> 何かをしていることにあるのだから。';
+        const qJp_09 = '誰かの雲のなかにかかる <br> 虹になって。';
+        const qJp_10 = '人生の意味とは、 <br> 人生に意味を与えること。'; 
+
+        let viewEn = '';
+        let viewN = '';
+        let viewJp = '';
+
+        $('#btn').on('click',function(){
+            $('.start').fadeOut(1000);
+            $('.main-body').fadeIn(1000);
+            const r = Math.ceil(Math.random()*10);
+            if(r == 1){
+                viewEn = qEn_01;
+                viewN = qAu_01;
+                viewJp = qJp_01;
+            }
+            if(r == 2){
+                viewEn = qEn_02;
+                viewN = qAu_02;
+                viewJp = qJp_02;
+            }
+            if(r == 3){
+                viewEn = qEn_03;
+                viewN = qAu_03;
+                viewJp = qJp_03;
+            }
+            if(r == 4){
+                viewEn = qEn_04;
+                viewN = qAu_04;
+                viewJp = qJp_04;
+            }
+            if(r == 5){
+                viewEn = qEn_05;
+                viewN = qAu_05;
+                viewJp = qJp_05;
+            }
+            if(r == 6){
+                viewEn = qEn_06;
+                viewN = qAu_06;
+                viewJp = qJp_06;
+            }
+            if(r == 7){
+                viewEn = qEn_07;
+                viewN = qAu_07;
+                viewJp = qJp_07;
+            }
+            if(r == 8){
+                viewEn = qEn_08;
+                viewN = qAu_08;
+                viewJp = qJp_08;
+            }
+            if(r == 9){
+                viewEn = qEn_09;
+                viewN = qAu_09;
+                viewJp = qJp_09;
+            }
+            if(r == 10){
+                viewEn = qEn_10;
+                viewN = qAu_10;
+                viewJp = qJp_10;
+            }
+            $('#echo-en').html(viewEn);
+            $('#echo-name').html(viewN);
+            $('#echo-jp').html(viewJp);
+        });
+
+        $('#btn-back').on('click',function(){
+            const r = Math.ceil(Math.random()*10);
+            if(r == 1){
+                viewEn = qEn_01;
+                viewN = qAu_01;
+                viewJp = qJp_01;
+            }
+            if(r == 2){
+                viewEn = qEn_02;
+                viewN = qAu_02;
+                viewJp = qJp_02;
+            }
+            if(r == 3){
+                viewEn = qEn_03;
+                viewN = qAu_03;
+                viewJp = qJp_03;
+            }
+            if(r == 4){
+                viewEn = qEn_04;
+                viewN = qAu_04;
+                viewJp = qJp_04;
+            }
+            if(r == 5){
+                viewEn = qEn_05;
+                viewN = qAu_05;
+                viewJp = qJp_05;
+            }
+            if(r == 6){
+                viewEn = qEn_06;
+                viewN = qAu_06;
+                viewJp = qJp_06;
+            }
+            if(r == 7){
+                viewEn = qEn_07;
+                viewN = qAu_07;
+                viewJp = qJp_07;
+            }
+            if(r == 8){
+                viewEn = qEn_08;
+                viewN = qAu_08;
+                viewJp = qJp_08;
+            }
+            if(r == 9){
+                viewEn = qEn_09;
+                viewN = qAu_09;
+                viewJp = qJp_09;
+            }
+            if(r == 10){
+                viewEn = qEn_10;
+                viewN = qAu_10;
+                viewJp = qJp_10;
+            }
+            $('#echo-en').html(viewEn);
+            $('#echo-name').html(viewN, 1000);
+            $('#echo-jp').html(viewJp, 1000);
+
+        });
+
+        $('#home').on('click',function(){
+            $('.main-body').fadeOut(1000);
+            $('.start').fadeIn(1000);
+        });
+            
+    </script>
+
+    
+</body>
+</html>

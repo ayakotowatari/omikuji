@@ -1,0 +1,242 @@
+@charset "UTF-8";
+
+
+/* font-family: 'Josefin Slab', serif;
+font-family: 'Special Elite', cursive;
+font-family: 'Noto Sans JP', sans-serif;
+font-family: 'Noto Serif JP', serif;
+font-family: 'Montserrat', sans-serif; 
+font-family: 'Playfair Display', serif;*/
+
+/* font-family: itc-american-typewriter, serif;
+font-weight: 500;
+font-style: normal; */
+
+/* font-family: courier-std, monospace;
+font-weight: 400;
+font-style: normal; */
+
+body{
+    color: #707070;
+}
+
+.text-center{
+    text-align: center;
+}
+
+/*----------------------
+* start
+-----------------------*/
+
+.start{
+    /* padding-top: 148px; */
+    background-color: #C4EADF;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
+.start-inner{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.start-textE{
+    font-family: itc-american-typewriter, serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 24px;
+    color: #707070;
+    letter-spacing: 0.05em;
+    /* margin-bottom: 14px; */
+    margin-bottom: 2vh;
+}
+
+.start-textJ{
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: lighter;
+    font-size: 14px;
+    color: #707070;
+    letter-spacing: 0.05em;
+    /* margin-bottom: 50px; */
+    margin-bottom: 8vh;
+}
+
+.start-textM{
+    font-size: 12px;
+    font-family: courier-std, monospace;
+    font-weight: 400;
+    font-style: normal; 
+    color: #707070;
+    letter-spacing: 0.05em;
+    /* margin-bottom: 56px; */
+    margin-bottom: 9vh;
+}
+
+.btn-start{
+    width:170px;
+    height:170px;
+    background-color: #F7F4F4;
+    border-radius:50%;
+    cursor: pointer;
+    display:inline-block;
+    outline:none;
+}
+
+.btn-start .fas{
+    font-size: 40px;
+    color: #C4EADF;
+    padding-top: 55px;
+    margin-bottom: 10px;
+}
+
+.btn-start p{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-transform: capitalize;
+}
+
+@media screen and (min-width:1024px){
+    /* .start{
+        padding-top: 120px;
+    } */
+
+    .start-textE{
+        font-size: 48px;
+        margin-bottom: 24px;
+    }
+
+    .start-textJ{
+        font-size: 18px;
+    }
+
+    .start-textM{
+        font-size: 24px;
+    }
+
+    
+}
+
+/*----------------------
+* main
+-----------------------*/
+.main-body{
+    display:none;
+    background-color: #F3EBE8;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
+.main-inner{
+    width:303px;
+    /* height:100%; */
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+
+.fa-home{
+    font-size: 30px;
+    color:#f3b8d0;
+    display:block;
+    text-align:right;
+    padding-top: 20px;
+    padding-right: 36px;
+    cursor: pointer;
+}
+
+.main-textE{
+    /* padding-top: 90px; */
+    font-family: 'Special Elite', cursive;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+    line-height:1.8;
+    /* margin-bottom: 18px; */
+    margin-bottom: 3vh;
+    text-align: left;
+}
+
+.main-name{
+    font-family: 'Special Elite', cursive;
+    font-size: 12px;
+    letter-spacing:0.05em;
+    /* margin-bottom: 80px; */
+    margin-bottom: 13vh;
+    text-align:right;
+    text-transform: capitalize;
+}
+
+.main-textT{
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    line-height:2.0;
+    margin-bottom: 80px;
+    margin-bottom: 13vh;
+}
+
+.btn-back{
+    cursor: pointer;
+    display:flex;
+    align-items:center;
+    outline:none;
+    width: 150.58px;
+    margin: 0 auto;
+}
+
+.btn-back_text{
+    font-family: 'Josefin Slab', serif;
+    font-weight:400;
+    font-size: 14px;
+    margin-right: 8px;
+    text-transform: uppercase;
+}
+
+.btn-back .fas{
+    font-size: 30px;
+    color:#f3b8d0;
+}
+
+.btn-back span{
+    text-transform: capitalize;
+}
+
+@media screen and (min-width:1024px){
+    .main-textE{
+        padding-top: 60px;
+    }
+}
+
+
+/*----------------------
+* footer
+-----------------------*/
+.footer{
+    font-family: itc-american-typewriter, serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 12px;
+    text-transform: capitalize;
+    color:#707070;
+    letter-spacing:0.05em;
+    position: absolute;
+    bottom: 20px;
+    left: 36px;
+}
+
