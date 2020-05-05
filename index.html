@@ -64,156 +64,76 @@
         }
         $("#date").css(date_style);
 
-        const qEn_01 = 'Hard work pays off <br> in the future, <br> laziness pays off now.';
-        const qEn_02 = 'Happiness is not a station <br> you arrive at, <br> but a manner of traveling.';
-        const qEn_03 = 'When you can’t find <br> the sunshine, <br> be the sunshine!';
-        const qEn_04 = 'The way I see it, <br> if you want the rainbow, <br> you gotta put up with <br> the rain.';
-        const qEn_05 = 'Make each day <br> your masterpiece.';
-        const qEn_06 = 'A truly happy person is <br> one who can enjoy the scenery <br> while on a detour.';
-        const qEn_07 = 'True happiness…arises, <br> in the first place, from <br> the enjoyment of one’s self.';
-        const qEn_08 = 'Focus on the journey, <br> not the destination. <br> Joy is found not in finishing <br> an activity but in doing it.';
-        const qEn_09 = 'Try to be a rainbow <br> in someone’s cloud.';
-        const qEn_10 = 'The meaning of life is <br> to give life meaning.';
-        const qAu_01 = 'anonymous';
-        const qAu_02 = 'anonymous';
-        const qAu_03 = 'anonymous';
-        const qAu_04 = 'anonymous';
-        const qAu_05 = 'john wooden';
-        const qAu_06 = 'sydney j. harris';
-        const qAu_07 = 'joseph addison';
-        const qAu_08 = 'greg anderson';
-        const qAu_09 = 'maya angelou';
-        const qAu_10 = 'ken hudgins';
-        const qJp_01 = '努力が助けるのは未来、<br> 怠惰が助けるのはいま。';
-        const qJp_02 = '幸せとは、たどりつく駅ではなく、 <br> あなたが旅をする姿勢。';
-        const qJp_03 = '太陽がみつからないなら、 <br> あなたが太陽になりなさい！';
-        const qJp_04 = '虹がほしいなら、 <br> 雨に耐えないといけない。<br> それが私の考え方。';
-        const qJp_05 = '毎日を、 <br> あなたの大作にしなさい。';
-        const qJp_06 = '本当に幸せな人間とは、<br> まわり道の風景を楽しむことができる人。';
-        const qJp_07 = '本当の幸せは、 <br> まず、自分を楽しむこと。';
-        const qJp_08 = '目的地ではなく、 <br> 旅に集中しなさい。 <br> 喜びとは、何かを終わらせることではなく、 <br> 何かをしていることにあるのだから。';
-        const qJp_09 = '誰かの雲のなかにかかる <br> 虹になって。';
-        const qJp_10 = '人生の意味とは、 <br> 人生に意味を与えること。'; 
-
-        let viewEn = '';
-        let viewN = '';
-        let viewJp = '';
+        const quotes = [
+            {
+                en_quote: "Hard work pays off <br> in the future, <br> laziness pays off now.",
+                author: "anonymous",
+                jp_quote: "努力が助けるのは未来、<br> 怠惰が助けるのはいま。"
+            },
+            {
+                en_quote: "Happiness is not a station <br> you arrive at, <br> but a manner of traveling.",
+                author: "anonymous",
+                jp_quote: "幸せとは、たどりつく駅ではなく、 <br> あなたが旅をする姿勢。"
+            },
+            {
+                en_quote: "When you can’t find <br> the sunshine, <br> be the sunshine!",
+                author: "anonymous",
+                jp_quote: "太陽がみつからないなら、 <br> あなたが太陽になりなさい！"
+            },
+            {
+                en_quote: "The way I see it, <br> if you want the rainbow, <br> you gotta put up with <br> the rain.",
+                author: "anonymous",
+                jp_quote: "虹がほしいなら、 <br> 雨に耐えないといけない。<br> それが私の考え方。"
+            },
+            {
+                en_quote: "Make each day <br> your masterpiece.",
+                author: "john wooden",
+                jp_quote: "毎日を、 <br> あなたの大作にしなさい。"
+            },
+            {
+                en_quote: "A truly happy person is <br> one who can enjoy the scenery <br> while on a detour.",
+                author: "sydney j. harris",
+                jp_quote: "本当に幸せな人間とは、<br> まわり道の風景を楽しむことができる人。"
+            },
+            {
+                en_quote: "True happiness…arises, <br> in the first place, from <br> the enjoyment of one’s self.",
+                author: "joseph addison",
+                jp_quote: "本当の幸せは、 <br> まず、自分を楽しむこと。"
+            },
+            {
+                en_quote: "Focus on the journey, <br> not the destination. <br> Joy is found not in finishing <br> an activity but in doing it.",
+                author: "greg anderson",
+                jp_quote: "目的地ではなく、 <br> 旅に集中しなさい。 <br> 喜びとは、何かを終わらせることではなく、 <br> 何かをしていることにあるのだから。"
+            },
+            {
+                en_quote: "Try to be a rainbow <br> in someone’s cloud.",
+                author: "maya angelou",
+                jp_quote: "誰かの雲のなかにかかる <br> 虹になって。"
+            },
+            {
+                en_quote: "The meaning of life is <br> to give life meaning.",
+                author: "ken hudgins",
+                jp_quote: "人生の意味とは、 <br> 人生に意味を与えること。"
+            },
+        ];
 
         $('#btn').on('click',function(){
             $('.start').fadeOut(1000);
-            $('.main-body').fadeIn(1000);
-            const r = Math.ceil(Math.random()*10);
-            if(r == 1){
-                viewEn = qEn_01;
-                viewN = qAu_01;
-                viewJp = qJp_01;
-            }
-            if(r == 2){
-                viewEn = qEn_02;
-                viewN = qAu_02;
-                viewJp = qJp_02;
-            }
-            if(r == 3){
-                viewEn = qEn_03;
-                viewN = qAu_03;
-                viewJp = qJp_03;
-            }
-            if(r == 4){
-                viewEn = qEn_04;
-                viewN = qAu_04;
-                viewJp = qJp_04;
-            }
-            if(r == 5){
-                viewEn = qEn_05;
-                viewN = qAu_05;
-                viewJp = qJp_05;
-            }
-            if(r == 6){
-                viewEn = qEn_06;
-                viewN = qAu_06;
-                viewJp = qJp_06;
-            }
-            if(r == 7){
-                viewEn = qEn_07;
-                viewN = qAu_07;
-                viewJp = qJp_07;
-            }
-            if(r == 8){
-                viewEn = qEn_08;
-                viewN = qAu_08;
-                viewJp = qJp_08;
-            }
-            if(r == 9){
-                viewEn = qEn_09;
-                viewN = qAu_09;
-                viewJp = qJp_09;
-            }
-            if(r == 10){
-                viewEn = qEn_10;
-                viewN = qAu_10;
-                viewJp = qJp_10;
-            }
-            $('#echo-en').html(viewEn);
-            $('#echo-name').html(viewN);
-            $('#echo-jp').html(viewJp);
+            // $('.main-body').hide();
+            $('.main-body').css('display','none').fadeIn(1000);
+            const r = Math.floor(Math.random()*10);
+
+            $('#echo-en').html(quotes[r].en_quote);
+            $('#echo-name').html(quotes[r].author);
+            $('#echo-jp').html(quotes[r].jp_quote);
         });
 
         $('#btn-back').on('click',function(){
-            const r = Math.ceil(Math.random()*10);
-            if(r == 1){
-                viewEn = qEn_01;
-                viewN = qAu_01;
-                viewJp = qJp_01;
-            }
-            if(r == 2){
-                viewEn = qEn_02;
-                viewN = qAu_02;
-                viewJp = qJp_02;
-            }
-            if(r == 3){
-                viewEn = qEn_03;
-                viewN = qAu_03;
-                viewJp = qJp_03;
-            }
-            if(r == 4){
-                viewEn = qEn_04;
-                viewN = qAu_04;
-                viewJp = qJp_04;
-            }
-            if(r == 5){
-                viewEn = qEn_05;
-                viewN = qAu_05;
-                viewJp = qJp_05;
-            }
-            if(r == 6){
-                viewEn = qEn_06;
-                viewN = qAu_06;
-                viewJp = qJp_06;
-            }
-            if(r == 7){
-                viewEn = qEn_07;
-                viewN = qAu_07;
-                viewJp = qJp_07;
-            }
-            if(r == 8){
-                viewEn = qEn_08;
-                viewN = qAu_08;
-                viewJp = qJp_08;
-            }
-            if(r == 9){
-                viewEn = qEn_09;
-                viewN = qAu_09;
-                viewJp = qJp_09;
-            }
-            if(r == 10){
-                viewEn = qEn_10;
-                viewN = qAu_10;
-                viewJp = qJp_10;
-            }
-            $('#echo-en').html(viewEn);
-            $('#echo-name').html(viewN, 1000);
-            $('#echo-jp').html(viewJp, 1000);
+            const r = Math.floor(Math.random()*10);
 
+            $("#echo-en").css("display","none").fadeIn(1200).html(quotes[r].en_quote);
+            $("#echo-name").css("display","none").fadeIn(1200).html(quotes[r].author);
+            $("#echo-jp").css("display","none").fadeIn(1200).html(quotes[r].jp_quote);
         });
 
         $('#home').on('click',function(){
