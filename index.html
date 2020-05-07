@@ -30,9 +30,14 @@
         
         <i id="home" class="fas fa-home"></i>
         <div class="main-inner">
-            <p id="echo-en" class="main-textE"></p>
-            <p id="echo-name" class="main-name"></p>
-            <p id="echo-jp" class="main-textT"></p>
+            <div id="quote">
+                <p id="echo-en" class="main-textE"></p>
+                <p id="echo-name" class="main-name"></p>
+                <p id="echo-jp" class="main-textT"></p>
+            </div>
+
+                <div id="btn-like">like</div>
+                <div id="btn-remove">remove</div>
 
                 <div id="btn-back" class="btn-back">
                     <p class="btn-back_text">try one more</p>
@@ -50,6 +55,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <script>
+        $('.main-body').hide();
+        
         mydate=new Date();
         Ye=mydate.getFullYear()+".";
         Mo=mydate.getMonth()+1+".";
@@ -119,8 +126,7 @@
 
         $('#btn').on('click',function(){
             $('.start').fadeOut(1000);
-            // $('.main-body').hide();
-            $('.main-body').css('display','none').fadeIn(1000);
+            $('.main-body').fadeIn(1000);
             const r = Math.floor(Math.random()*10);
 
             $('#echo-en').html(quotes[r].en_quote);
@@ -134,12 +140,43 @@
             $("#echo-en").css("display","none").fadeIn(1200).html(quotes[r].en_quote);
             $("#echo-name").css("display","none").fadeIn(1200).html(quotes[r].author);
             $("#echo-jp").css("display","none").fadeIn(1200).html(quotes[r].jp_quote);
-        });
+        }); 
 
         $('#home').on('click',function(){
             $('.main-body').fadeOut(1000);
             $('.start').fadeIn(1000);
         });
+
+        const storageKey = "quote";
+
+        let data = [];
+
+        if(localStorage.getItem(storageKey)){
+            data = JSON.parse(localStorage.getItem(storageKey));
+        }
+
+        $('#btn-like').on("click",function(){
+            const en = $("#echo-en").text();
+            const au = $("#echo-name").text();
+            const jp = $("#echo-jp").text();
+            
+            data.push({en, au, jp});
+
+            localStorage.setItem(storageKey,JSON.stringify(data));
+        });
+
+        $('#btn-remove').on("click",function(){
+            localStorage.removeItem(storageKey,JSON.stringify(data));
+        });
+
+          // $('#btn-like').on("click",function(){
+        //     let likedQuote = $("#quote").text();
+        //     localStorage.setItem("quote",likedQuote);
+        //     });
+
+        // $('#btn-remove').on("click",function(){
+        //     localStorage.removeItem("quote");
+        // });
             
     </script>
 
