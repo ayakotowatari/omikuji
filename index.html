@@ -37,7 +37,6 @@
             </div>
 
                 <div id="btn-like">like</div>
-                <div id="btn-remove">remove</div>
 
                 <div id="btn-back" class="btn-back">
                     <p class="btn-back_text">try one more</p>
@@ -163,10 +162,6 @@
             data.push({en, au, jp});
 
             localStorage.setItem(storageKey,JSON.stringify(data));
-        });
-
-        $('#btn-remove').on("click",function(){
-            localStorage.removeItem(storageKey,JSON.stringify(data));
         });
 
           // $('#btn-like').on("click",function(){
