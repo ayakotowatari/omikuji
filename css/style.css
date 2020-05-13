@@ -150,15 +150,33 @@ body{
     -ms-transform: translate(-50%, -50%);
 }
 
+.nav{
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display:flex;
+    justify-content:space-between;
+}
 
 .fa-home{
     font-size: 30px;
     color:#f3b8d0;
     display:block;
     text-align:left;
-    padding-top: 20px;
-    padding-left: 36px;
+    /* padding-top: 20px; */
     cursor: pointer;
+}
+
+.fa-user-circle{
+    font-size: 30px;
+    color:#c2b9b8;
+    cursor: pointer;
+    transition: all 0.5s;
+
+}
+
+.fa-user-circle:hover{
+    color: #807E74;
 }
 
 .main-textE{
@@ -188,10 +206,24 @@ body{
     letter-spacing: 0.05em;
     line-height:2.0;
     /* margin-bottom: 80px; */
-    margin-bottom: 13vh;
+    /* margin-bottom: 13vh; */
 }
 
-.btn-back{
+.fa-heart{
+    font-size: 1.4rem;
+    display:block;
+    text-align: right;
+    margin-bottom: 12vh;
+    color:#f3b8d0;
+    transition : all 0.5s;
+}
+
+.fa-heart:hover{
+    color: #DF70A2;
+}
+
+
+.btn-add{
     cursor: pointer;
     display:flex;
     align-items:center;
@@ -200,7 +232,7 @@ body{
     margin: 0 auto;
 }
 
-.btn-back_text{
+.btn-add_text{
     font-family: 'Josefin Slab', serif;
     font-weight:400;
     font-size: 14px;
@@ -208,14 +240,16 @@ body{
     text-transform: uppercase;
 }
 
-.btn-back .fas{
+.btn-add .fas{
     font-size: 30px;
     color:#f3b8d0;
 }
 
-.btn-back span{
+.btn-add span{
     text-transform: capitalize;
 }
+
+
 
 @media screen and (min-width:1024px){
     .main-textE{
