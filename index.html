@@ -26,28 +26,38 @@
         </div>
     </div>
 
-    <div class="main-body">
-        
-        <i id="home" class="fas fa-home"></i>
-        <div class="main-inner">
-            <div id="quote">
-                <p id="echo-en" class="main-textE"></p>
-                <p id="echo-name" class="main-name"></p>
-                <p id="echo-jp" class="main-textT"></p>
+    <div id="main-body" class="main-body">
+
+       
+        <div id="inner">
+            <div class="nav">
+                <i id="home" class="fas fa-home"></i>
+                <i id="user" class="fas fa-user-circle"></i>
             </div>
 
-                <div id="btn-like">like</div>
-
-                <div id="btn-back" class="btn-back">
-                    <p class="btn-back_text">try one more</p>
-                    <i class="fas fa-angle-double-right"></i>
+            <div class="main-inner">
+                <div id="quote">
+                    <p id="echo-en" class="main-textE"></p>
+                    <p id="echo-name" class="main-name"></p>
+                    <p id="echo-jp" class="main-textT"></p>
                 </div>
-        </div>
-    
 
-        <footer>
-            <small class="footer">&copy; ayako towatari 2020</small>
-        </footer>
+                    <i id="btn-like" class="fas fa-heart"></i>
+                   
+                    <div id="btn-add" class="btn-add">
+                        <p class="btn-add_text">try one more</p>
+                        <i class="fas fa-angle-double-right"></i>
+                    </div>
+                    
+            </div>
+
+            <footer>
+                <small class="footer">
+                    <span>&copy; ayako towatari 2020</span>
+                    <div id="btn-remove">remove</div>
+                </small>              
+            </footer>
+        </div>
 
     </div>
 
@@ -121,6 +131,11 @@
                 author: "ken hudgins",
                 jp_quote: "人生の意味とは、 <br> 人生に意味を与えること。"
             },
+            {
+                en_quote: "Don't look at the sky. <br> Just aim to fly.",
+                author: "A friend of Ryuzo Inoue",
+                jp_quote: "空をみつめてないで、 <br> ただ飛び立ちなさい。"
+            }
         ];
 
         $('#btn').on('click',function(){
@@ -133,18 +148,13 @@
             $('#echo-jp').html(quotes[r].jp_quote);
         });
 
-        $('#btn-back').on('click',function(){
-            const r = Math.floor(Math.random()*10);
+        $('#btn-add').on('click',function(){
+            const r = Math.floor(Math.random()*11);
 
             $("#echo-en").css("display","none").fadeIn(1200).html(quotes[r].en_quote);
             $("#echo-name").css("display","none").fadeIn(1200).html(quotes[r].author);
             $("#echo-jp").css("display","none").fadeIn(1200).html(quotes[r].jp_quote);
         }); 
-
-        $('#home').on('click',function(){
-            $('.main-body').fadeOut(1000);
-            $('.start').fadeIn(1000);
-        });
 
         const storageKey = "quote";
 
@@ -164,14 +174,24 @@
             localStorage.setItem(storageKey,JSON.stringify(data));
         });
 
-          // $('#btn-like').on("click",function(){
-        //     let likedQuote = $("#quote").text();
-        //     localStorage.setItem("quote",likedQuote);
-        //     });
+        $("#user").on("click",function(){
+            $("#inner").animate({opacity:0}, 1000, function(){
+                location.href = "user.html";
+            })
 
-        // $('#btn-remove').on("click",function(){
-        //     localStorage.removeItem("quote");
-        // });
+
+        });
+
+        $('#home').on('click',function(){
+            $('.main-body').fadeOut(1000);
+            $('.start').fadeIn(1000);
+        });
+
+
+        $('#btn-remove').on("click",function(){
+            data = [];
+            localStorage.removeItem(storageKey);
+        });
             
     </script>
 
